@@ -1,34 +1,29 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from "expo-router";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
+        tabBarShowLabel: false,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name="house" size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="games"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          title: "Games",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name="chess-board" size={28} color={color} />
           ),
         }}
       />
